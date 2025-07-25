@@ -16,6 +16,10 @@ app.get('/:id', (req, res) => {
     res.send(`Hello, ${id}!`);
 });
 
+app.get('name', (req, res) => {
+    const name = req.query.name || 'Guest';
+    res.send(`Hello, ${name}!`);
+});
 
 if (require.main === module) {
     app.listen(PORT, () => {
