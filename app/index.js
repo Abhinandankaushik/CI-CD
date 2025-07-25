@@ -11,6 +11,11 @@ app.get('/health', (req, res) => {
     res.status(200).send('OK');
 }); 
 
+app.get('/:id', (req, res) => {
+    const id = req.params.id;
+    res.send(`Hello, ${id}!`);
+});
+
 
 if (require.main === module) {
     app.listen(PORT, () => {

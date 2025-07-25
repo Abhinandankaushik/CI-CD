@@ -13,4 +13,18 @@ describe('Express App Endpoints', () => {
     expect(res.statusCode).toBe(200);
     expect(res.text).toBe('OK');
   });
+
+   test('should return greeting with the provided id', async () => {
+    const res = await request(app).get('/Abhinandan');
+
+    expect(res.statusCode).toBe(200);
+    expect(res.text).toBe('Hello, Abhinandan!');
+  });
+
+  test('should work with numeric id as well', async () => {
+    const res = await request(app).get('/123');
+
+    expect(res.statusCode).toBe(200);
+    expect(res.text).toBe('Hello, 123!');
+  });
 });
